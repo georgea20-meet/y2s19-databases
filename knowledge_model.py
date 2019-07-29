@@ -5,13 +5,19 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
-class Knowledge(Base):
-	# Create a table with 4 columns
-	# The first column will be the primary key
-	# The second column should be a string representing
-	# the name of the Wiki article that you're referencing
-	# The third column will be a string representing the 
-	# topic of the article. The last column will be
-	# an integer, representing your rating of the article.
+class Photography(Base):
 
-	pass
+	__tablename__ = "Mygear"
+	client_id = Column(Integer , primary_key = True )
+	name = Column(String)
+	budget = Column(Integer)
+	Will_buy = Column(Boolean)	
+	
+	def __repr__(self):
+		return ( "name : {}\n"
+				 "budget : {}\n"
+				 "Will_buy : {} ").format(
+				 self.name , self.budget , self.Will_buy )
+
+
+
